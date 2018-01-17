@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Athlete" representedClassName="Athlete" syncable="YES" codeGenerationType="class">
+        <attribute name="dateOfBirth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="myAthleteEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="myAthlete" inverseEntity="Event" syncable="YES"/>
+        <relationship name="myAthleteRelayLegs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RelayLeg" inverseName="myAthleteLeg" inverseEntity="RelayLeg" syncable="YES"/>
+    </entity>
+    <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
+        <attribute name="distance" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="myAthlete" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Athlete" inverseName="myAthleteEvents" inverseEntity="Athlete" syncable="YES"/>
+        <relationship name="myEventDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventDate" inverseName="myEvents" inverseEntity="EventDate" syncable="YES"/>
+    </entity>
+    <entity name="EventDate" representedClassName="EventDate" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="myEvents" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Event" inverseName="myEventDate" inverseEntity="Event" syncable="YES"/>
+        <relationship name="myRelayEvents" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RelayLeg" inverseName="myRelayEventDate" inverseEntity="RelayLeg" syncable="YES"/>
+    </entity>
+    <entity name="RelayLeg" representedClassName="RelayLeg" syncable="YES" codeGenerationType="class">
+        <attribute name="distance" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="leg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalTime" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="myAthleteLeg" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Athlete" inverseName="myAthleteRelayLegs" inverseEntity="Athlete" syncable="YES"/>
+        <relationship name="myRelayEventDate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventDate" inverseName="myRelayEvents" inverseEntity="EventDate" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Athlete" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Event" positionX="-54" positionY="36" width="128" height="105"/>
+        <element name="EventDate" positionX="-54" positionY="36" width="128" height="105"/>
+        <element name="RelayLeg" positionX="-45" positionY="45" width="128" height="135"/>
+    </elements>
+</model>

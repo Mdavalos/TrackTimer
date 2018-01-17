@@ -1,0 +1,648 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E31FC4AC1E9405AD00E9F0EE /* AthleteListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31FC4AB1E9405AD00E9F0EE /* AthleteListTableViewController.swift */; };
+		E31FC4AE1E940EC800E9F0EE /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31FC4AD1E940EC800E9F0EE /* CoreDataStack.swift */; };
+		E31FC4B01E940EE100E9F0EE /* DDRCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31FC4AF1E940EE100E9F0EE /* DDRCoreData.swift */; };
+		E31FC4B21E940F2D00E9F0EE /* Athlete.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31FC4B11E940F2D00E9F0EE /* Athlete.swift */; };
+		E31FC4B41E940F5500E9F0EE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31FC4B31E940F5500E9F0EE /* Event.swift */; };
+		E31FC4B61E940FE600E9F0EE /* EventDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31FC4B51E940FE600E9F0EE /* EventDate.swift */; };
+		E31FC4BA1E94101F00E9F0EE /* RelayLeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31FC4B91E94101F00E9F0EE /* RelayLeg.swift */; };
+		E31FC4BC1E94109100E9F0EE /* detailAthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31FC4BB1E94109100E9F0EE /* detailAthleteViewController.swift */; };
+		E321E2AC1EA9A3E800B10687 /* MainScreenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E321E2AB1EA9A3E800B10687 /* MainScreenTableViewController.swift */; };
+		E321E2B51EA9AB3700B10687 /* TrackTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E321E2B41EA9AB3700B10687 /* TrackTimerTests.swift */; };
+		E33770D21E8437C900136983 /* IndividualTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33770D11E8437C900136983 /* IndividualTimerViewController.swift */; };
+		E33770D41E843C5700136983 /* ChooseIndividualRaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33770D31E843C5700136983 /* ChooseIndividualRaceViewController.swift */; };
+		E33E9E1B1E8D75CB0046619F /* RelayTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33E9E1A1E8D75CB0046619F /* RelayTimerViewController.swift */; };
+		E33E9E1D1E8D75F50046619F /* ChooseRelayAthletesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33E9E1C1E8D75F50046619F /* ChooseRelayAthletesTableViewController.swift */; };
+		E382F6A51E816BE500E92116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382F6A41E816BE500E92116 /* AppDelegate.swift */; };
+		E382F6A81E816BE500E92116 /* TrackTimer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E382F6A61E816BE500E92116 /* TrackTimer.xcdatamodeld */; };
+		E382F6AF1E816BE500E92116 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E382F6AD1E816BE500E92116 /* Main.storyboard */; };
+		E382F6B11E816BE500E92116 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E382F6B01E816BE500E92116 /* Assets.xcassets */; };
+		E382F6B41E816BE500E92116 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E382F6B21E816BE500E92116 /* LaunchScreen.storyboard */; };
+		E388A1FB1EACFC870034C651 /* RelayTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E388A1FA1EACFC870034C651 /* RelayTeamViewController.swift */; };
+		E3AF92291EA78AFB00AE9B4A /* ViewTimesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AF92281EA78AFB00AE9B4A /* ViewTimesTableViewController.swift */; };
+		E3AF92351EA792F800AE9B4A /* EventViewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AF92341EA792F800AE9B4A /* EventViewTableCell.xib */; };
+		E3AF92371EA7938A00AE9B4A /* EventViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AF92361EA7938A00AE9B4A /* EventViewCell.swift */; };
+		E3B0B1781EA7B1BA002DFA10 /* ChooseRelayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B0B1771EA7B1BA002DFA10 /* ChooseRelayViewController.swift */; };
+		E3B0B17B1EA7E767002DFA10 /* RelayAthleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B0B17A1EA7E767002DFA10 /* RelayAthleteTableViewCell.xib */; };
+		E3B0B17D1EA7E7E8002DFA10 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B0B17C1EA7E7E8002DFA10 /* EventTableViewCell.swift */; };
+		E3B4E9391EA40A590051FF80 /* ChooseIndividualAthleteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B4E9381EA40A590051FF80 /* ChooseIndividualAthleteTableViewController.swift */; };
+		E3C097F91EA91B4300709522 /* ViewAllTimesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C097F81EA91B4300709522 /* ViewAllTimesTableViewController.swift */; };
+		E3C097FB1EA91CB600709522 /* AthleteTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C097FA1EA91CB600709522 /* AthleteTime.swift */; };
+		E3C097FE1EA91DF100709522 /* BestTimesTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3C097FD1EA91DF100709522 /* BestTimesTableCell.xib */; };
+		E3C098001EA91E3000709522 /* BestTimesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C097FF1EA91E3000709522 /* BestTimesCell.swift */; };
+		E3EB361F1EA8DB6600954233 /* ViewRelayTimesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EB361E1EA8DB6600954233 /* ViewRelayTimesTableViewController.swift */; };
+		E3F8B6B91E96ACD200612E27 /* AthleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3F8B6B81E96ACD200612E27 /* AthleteTableViewCell.xib */; };
+		E3F8B6BD1E96AD1200612E27 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F8B6BC1E96AD1200612E27 /* CustomTableViewCell.swift */; };
+		E3FD808B1E8AD03200CACE01 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FD808A1E8AD03200CACE01 /* Stopwatch.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E321E2B71EA9AB3700B10687 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E382F6991E816BE400E92116 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E382F6A01E816BE400E92116;
+			remoteInfo = TrackTimer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E31FC4AB1E9405AD00E9F0EE /* AthleteListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AthleteListTableViewController.swift; sourceTree = "<group>"; };
+		E31FC4AD1E940EC800E9F0EE /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		E31FC4AF1E940EE100E9F0EE /* DDRCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDRCoreData.swift; sourceTree = "<group>"; };
+		E31FC4B11E940F2D00E9F0EE /* Athlete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Athlete.swift; sourceTree = "<group>"; };
+		E31FC4B31E940F5500E9F0EE /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		E31FC4B51E940FE600E9F0EE /* EventDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDate.swift; sourceTree = "<group>"; };
+		E31FC4B91E94101F00E9F0EE /* RelayLeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayLeg.swift; sourceTree = "<group>"; };
+		E31FC4BB1E94109100E9F0EE /* detailAthleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailAthleteViewController.swift; sourceTree = "<group>"; };
+		E321E2AB1EA9A3E800B10687 /* MainScreenTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenTableViewController.swift; sourceTree = "<group>"; };
+		E321E2B21EA9AB3700B10687 /* TrackTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrackTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E321E2B41EA9AB3700B10687 /* TrackTimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTimerTests.swift; sourceTree = "<group>"; };
+		E321E2B61EA9AB3700B10687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E33770D11E8437C900136983 /* IndividualTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndividualTimerViewController.swift; sourceTree = "<group>"; };
+		E33770D31E843C5700136983 /* ChooseIndividualRaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseIndividualRaceViewController.swift; sourceTree = "<group>"; };
+		E33E9E1A1E8D75CB0046619F /* RelayTimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayTimerViewController.swift; sourceTree = "<group>"; };
+		E33E9E1C1E8D75F50046619F /* ChooseRelayAthletesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseRelayAthletesTableViewController.swift; sourceTree = "<group>"; };
+		E382F6A11E816BE500E92116 /* TrackTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E382F6A41E816BE500E92116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E382F6A71E816BE500E92116 /* TrackTimer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackTimer.xcdatamodel; sourceTree = "<group>"; };
+		E382F6AE1E816BE500E92116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E382F6B01E816BE500E92116 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E382F6B31E816BE500E92116 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E382F6B51E816BE500E92116 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E388A1FA1EACFC870034C651 /* RelayTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelayTeamViewController.swift; sourceTree = "<group>"; };
+		E3AF92281EA78AFB00AE9B4A /* ViewTimesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTimesTableViewController.swift; sourceTree = "<group>"; };
+		E3AF92341EA792F800AE9B4A /* EventViewTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewTableCell.xib; sourceTree = "<group>"; };
+		E3AF92361EA7938A00AE9B4A /* EventViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewCell.swift; sourceTree = "<group>"; };
+		E3B0B1771EA7B1BA002DFA10 /* ChooseRelayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseRelayViewController.swift; sourceTree = "<group>"; };
+		E3B0B17A1EA7E767002DFA10 /* RelayAthleteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RelayAthleteTableViewCell.xib; sourceTree = "<group>"; };
+		E3B0B17C1EA7E7E8002DFA10 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		E3B4E9381EA40A590051FF80 /* ChooseIndividualAthleteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseIndividualAthleteTableViewController.swift; sourceTree = "<group>"; };
+		E3C097F81EA91B4300709522 /* ViewAllTimesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAllTimesTableViewController.swift; sourceTree = "<group>"; };
+		E3C097FA1EA91CB600709522 /* AthleteTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AthleteTime.swift; sourceTree = "<group>"; };
+		E3C097FD1EA91DF100709522 /* BestTimesTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BestTimesTableCell.xib; sourceTree = "<group>"; };
+		E3C097FF1EA91E3000709522 /* BestTimesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestTimesCell.swift; sourceTree = "<group>"; };
+		E3EB361E1EA8DB6600954233 /* ViewRelayTimesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRelayTimesTableViewController.swift; sourceTree = "<group>"; };
+		E3F8B6B81E96ACD200612E27 /* AthleteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AthleteTableViewCell.xib; sourceTree = "<group>"; };
+		E3F8B6BC1E96AD1200612E27 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		E3FD808A1E8AD03200CACE01 /* Stopwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E321E2AF1EA9AB3700B10687 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E382F69E1E816BE400E92116 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E321E2B31EA9AB3700B10687 /* TrackTimerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E321E2B41EA9AB3700B10687 /* TrackTimerTests.swift */,
+				E321E2B61EA9AB3700B10687 /* Info.plist */,
+			);
+			path = TrackTimerTests;
+			sourceTree = "<group>";
+		};
+		E360399A1EA9579E009439FC /* ViewAllTimes */ = {
+			isa = PBXGroup;
+			children = (
+				E3C097F81EA91B4300709522 /* ViewAllTimesTableViewController.swift */,
+				E3C097FA1EA91CB600709522 /* AthleteTime.swift */,
+			);
+			name = ViewAllTimes;
+			sourceTree = "<group>";
+		};
+		E382F6981E816BE400E92116 = {
+			isa = PBXGroup;
+			children = (
+				E382F6A31E816BE500E92116 /* TrackTimer */,
+				E321E2B31EA9AB3700B10687 /* TrackTimerTests */,
+				E382F6A21E816BE500E92116 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E382F6A21E816BE500E92116 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E382F6A11E816BE500E92116 /* TrackTimer.app */,
+				E321E2B21EA9AB3700B10687 /* TrackTimerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E382F6A31E816BE500E92116 /* TrackTimer */ = {
+			isa = PBXGroup;
+			children = (
+				E382F6AD1E816BE500E92116 /* Main.storyboard */,
+				E382F6A41E816BE500E92116 /* AppDelegate.swift */,
+				E3FD808A1E8AD03200CACE01 /* Stopwatch.swift */,
+				E360399A1EA9579E009439FC /* ViewAllTimes */,
+				E3AF922A1EA78B0600AE9B4A /* IndividualTimer */,
+				E3AF922B1EA78B1B00AE9B4A /* RelayTimer */,
+				E3AF922C1EA78B3800AE9B4A /* ViewAthletes */,
+				E3C097FC1EA91DD400709522 /* BestTimesCell */,
+				E3B0B1791EA7E743002DFA10 /* RelayAthleteCell */,
+				E3AF922E1EA78CFA00AE9B4A /* AthleteCell */,
+				E3AF922F1EA78D0E00AE9B4A /* EventCell */,
+				E3AF922D1EA78B5200AE9B4A /* CoreData */,
+				E382F6B01E816BE500E92116 /* Assets.xcassets */,
+				E382F6B21E816BE500E92116 /* LaunchScreen.storyboard */,
+				E382F6B51E816BE500E92116 /* Info.plist */,
+				E382F6A61E816BE500E92116 /* TrackTimer.xcdatamodeld */,
+				E321E2AB1EA9A3E800B10687 /* MainScreenTableViewController.swift */,
+			);
+			path = TrackTimer;
+			sourceTree = "<group>";
+		};
+		E3AF922A1EA78B0600AE9B4A /* IndividualTimer */ = {
+			isa = PBXGroup;
+			children = (
+				E33770D31E843C5700136983 /* ChooseIndividualRaceViewController.swift */,
+				E3B4E9381EA40A590051FF80 /* ChooseIndividualAthleteTableViewController.swift */,
+				E33770D11E8437C900136983 /* IndividualTimerViewController.swift */,
+			);
+			name = IndividualTimer;
+			sourceTree = "<group>";
+		};
+		E3AF922B1EA78B1B00AE9B4A /* RelayTimer */ = {
+			isa = PBXGroup;
+			children = (
+				E3B0B1771EA7B1BA002DFA10 /* ChooseRelayViewController.swift */,
+				E33E9E1C1E8D75F50046619F /* ChooseRelayAthletesTableViewController.swift */,
+				E33E9E1A1E8D75CB0046619F /* RelayTimerViewController.swift */,
+			);
+			name = RelayTimer;
+			sourceTree = "<group>";
+		};
+		E3AF922C1EA78B3800AE9B4A /* ViewAthletes */ = {
+			isa = PBXGroup;
+			children = (
+				E31FC4AB1E9405AD00E9F0EE /* AthleteListTableViewController.swift */,
+				E31FC4BB1E94109100E9F0EE /* detailAthleteViewController.swift */,
+				E3AF92281EA78AFB00AE9B4A /* ViewTimesTableViewController.swift */,
+				E3EB361E1EA8DB6600954233 /* ViewRelayTimesTableViewController.swift */,
+				E388A1FA1EACFC870034C651 /* RelayTeamViewController.swift */,
+			);
+			name = ViewAthletes;
+			sourceTree = "<group>";
+		};
+		E3AF922D1EA78B5200AE9B4A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E31FC4AD1E940EC800E9F0EE /* CoreDataStack.swift */,
+				E31FC4AF1E940EE100E9F0EE /* DDRCoreData.swift */,
+				E31FC4B11E940F2D00E9F0EE /* Athlete.swift */,
+				E31FC4B31E940F5500E9F0EE /* Event.swift */,
+				E31FC4B51E940FE600E9F0EE /* EventDate.swift */,
+				E31FC4B91E94101F00E9F0EE /* RelayLeg.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		E3AF922E1EA78CFA00AE9B4A /* AthleteCell */ = {
+			isa = PBXGroup;
+			children = (
+				E3F8B6B81E96ACD200612E27 /* AthleteTableViewCell.xib */,
+				E3F8B6BC1E96AD1200612E27 /* CustomTableViewCell.swift */,
+			);
+			name = AthleteCell;
+			sourceTree = "<group>";
+		};
+		E3AF922F1EA78D0E00AE9B4A /* EventCell */ = {
+			isa = PBXGroup;
+			children = (
+				E3AF92341EA792F800AE9B4A /* EventViewTableCell.xib */,
+				E3AF92361EA7938A00AE9B4A /* EventViewCell.swift */,
+			);
+			name = EventCell;
+			sourceTree = "<group>";
+		};
+		E3B0B1791EA7E743002DFA10 /* RelayAthleteCell */ = {
+			isa = PBXGroup;
+			children = (
+				E3B0B17A1EA7E767002DFA10 /* RelayAthleteTableViewCell.xib */,
+				E3B0B17C1EA7E7E8002DFA10 /* EventTableViewCell.swift */,
+			);
+			name = RelayAthleteCell;
+			sourceTree = "<group>";
+		};
+		E3C097FC1EA91DD400709522 /* BestTimesCell */ = {
+			isa = PBXGroup;
+			children = (
+				E3C097FD1EA91DF100709522 /* BestTimesTableCell.xib */,
+				E3C097FF1EA91E3000709522 /* BestTimesCell.swift */,
+			);
+			name = BestTimesCell;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E321E2B11EA9AB3700B10687 /* TrackTimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E321E2B91EA9AB3700B10687 /* Build configuration list for PBXNativeTarget "TrackTimerTests" */;
+			buildPhases = (
+				E321E2AE1EA9AB3700B10687 /* Sources */,
+				E321E2AF1EA9AB3700B10687 /* Frameworks */,
+				E321E2B01EA9AB3700B10687 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E321E2B81EA9AB3700B10687 /* PBXTargetDependency */,
+			);
+			name = TrackTimerTests;
+			productName = TrackTimerTests;
+			productReference = E321E2B21EA9AB3700B10687 /* TrackTimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E382F6A01E816BE400E92116 /* TrackTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E382F6B81E816BE500E92116 /* Build configuration list for PBXNativeTarget "TrackTimer" */;
+			buildPhases = (
+				E382F69D1E816BE400E92116 /* Sources */,
+				E382F69E1E816BE400E92116 /* Frameworks */,
+				E382F69F1E816BE400E92116 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TrackTimer;
+			productName = TrackTimer;
+			productReference = E382F6A11E816BE500E92116 /* TrackTimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E382F6991E816BE400E92116 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Miguel Davalos";
+				TargetAttributes = {
+					E321E2B11EA9AB3700B10687 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = 3D56D64VWD;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E382F6A01E816BE400E92116;
+					};
+					E382F6A01E816BE400E92116 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 3D56D64VWD;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E382F69C1E816BE400E92116 /* Build configuration list for PBXProject "TrackTimer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E382F6981E816BE400E92116;
+			productRefGroup = E382F6A21E816BE500E92116 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E382F6A01E816BE400E92116 /* TrackTimer */,
+				E321E2B11EA9AB3700B10687 /* TrackTimerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E321E2B01EA9AB3700B10687 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E382F69F1E816BE400E92116 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3C097FE1EA91DF100709522 /* BestTimesTableCell.xib in Resources */,
+				E382F6B41E816BE500E92116 /* LaunchScreen.storyboard in Resources */,
+				E3AF92351EA792F800AE9B4A /* EventViewTableCell.xib in Resources */,
+				E382F6B11E816BE500E92116 /* Assets.xcassets in Resources */,
+				E3B0B17B1EA7E767002DFA10 /* RelayAthleteTableViewCell.xib in Resources */,
+				E3F8B6B91E96ACD200612E27 /* AthleteTableViewCell.xib in Resources */,
+				E382F6AF1E816BE500E92116 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E321E2AE1EA9AB3700B10687 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E321E2B51EA9AB3700B10687 /* TrackTimerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E382F69D1E816BE400E92116 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E382F6A51E816BE500E92116 /* AppDelegate.swift in Sources */,
+				E33770D41E843C5700136983 /* ChooseIndividualRaceViewController.swift in Sources */,
+				E31FC4AE1E940EC800E9F0EE /* CoreDataStack.swift in Sources */,
+				E31FC4B41E940F5500E9F0EE /* Event.swift in Sources */,
+				E31FC4AC1E9405AD00E9F0EE /* AthleteListTableViewController.swift in Sources */,
+				E3F8B6BD1E96AD1200612E27 /* CustomTableViewCell.swift in Sources */,
+				E382F6A81E816BE500E92116 /* TrackTimer.xcdatamodeld in Sources */,
+				E3C098001EA91E3000709522 /* BestTimesCell.swift in Sources */,
+				E3B0B17D1EA7E7E8002DFA10 /* EventTableViewCell.swift in Sources */,
+				E3AF92291EA78AFB00AE9B4A /* ViewTimesTableViewController.swift in Sources */,
+				E3AF92371EA7938A00AE9B4A /* EventViewCell.swift in Sources */,
+				E3C097FB1EA91CB600709522 /* AthleteTime.swift in Sources */,
+				E3EB361F1EA8DB6600954233 /* ViewRelayTimesTableViewController.swift in Sources */,
+				E33E9E1D1E8D75F50046619F /* ChooseRelayAthletesTableViewController.swift in Sources */,
+				E31FC4BA1E94101F00E9F0EE /* RelayLeg.swift in Sources */,
+				E31FC4B61E940FE600E9F0EE /* EventDate.swift in Sources */,
+				E388A1FB1EACFC870034C651 /* RelayTeamViewController.swift in Sources */,
+				E3C097F91EA91B4300709522 /* ViewAllTimesTableViewController.swift in Sources */,
+				E3B0B1781EA7B1BA002DFA10 /* ChooseRelayViewController.swift in Sources */,
+				E3FD808B1E8AD03200CACE01 /* Stopwatch.swift in Sources */,
+				E31FC4B01E940EE100E9F0EE /* DDRCoreData.swift in Sources */,
+				E33E9E1B1E8D75CB0046619F /* RelayTimerViewController.swift in Sources */,
+				E321E2AC1EA9A3E800B10687 /* MainScreenTableViewController.swift in Sources */,
+				E33770D21E8437C900136983 /* IndividualTimerViewController.swift in Sources */,
+				E31FC4B21E940F2D00E9F0EE /* Athlete.swift in Sources */,
+				E31FC4BC1E94109100E9F0EE /* detailAthleteViewController.swift in Sources */,
+				E3B4E9391EA40A590051FF80 /* ChooseIndividualAthleteTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E321E2B81EA9AB3700B10687 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E382F6A01E816BE400E92116 /* TrackTimer */;
+			targetProxy = E321E2B71EA9AB3700B10687 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E382F6AD1E816BE500E92116 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E382F6AE1E816BE500E92116 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E382F6B21E816BE500E92116 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E382F6B31E816BE500E92116 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E321E2BA1EA9AB3700B10687 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = 3D56D64VWD;
+				INFOPLIST_FILE = TrackTimerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.capital.miguel.TrackTimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TrackTimer.app/TrackTimer";
+			};
+			name = Debug;
+		};
+		E321E2BB1EA9AB3700B10687 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = 3D56D64VWD;
+				INFOPLIST_FILE = TrackTimerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.capital.miguel.TrackTimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TrackTimer.app/TrackTimer";
+			};
+			name = Release;
+		};
+		E382F6B61E816BE500E92116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E382F6B71E816BE500E92116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E382F6B91E816BE500E92116 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3D56D64VWD;
+				INFOPLIST_FILE = TrackTimer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.capital.miguel.TrackTimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		E382F6BA1E816BE500E92116 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3D56D64VWD;
+				INFOPLIST_FILE = TrackTimer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.capital.miguel.TrackTimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E321E2B91EA9AB3700B10687 /* Build configuration list for PBXNativeTarget "TrackTimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E321E2BA1EA9AB3700B10687 /* Debug */,
+				E321E2BB1EA9AB3700B10687 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E382F69C1E816BE400E92116 /* Build configuration list for PBXProject "TrackTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E382F6B61E816BE500E92116 /* Debug */,
+				E382F6B71E816BE500E92116 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E382F6B81E816BE500E92116 /* Build configuration list for PBXNativeTarget "TrackTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E382F6B91E816BE500E92116 /* Debug */,
+				E382F6BA1E816BE500E92116 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E382F6A61E816BE500E92116 /* TrackTimer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E382F6A71E816BE500E92116 /* TrackTimer.xcdatamodel */,
+			);
+			currentVersion = E382F6A71E816BE500E92116 /* TrackTimer.xcdatamodel */;
+			path = TrackTimer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E382F6991E816BE400E92116 /* Project object */;
+}

@@ -38,6 +38,9 @@ class IndividualTimerViewController: UIViewController {
         super.viewDidLoad()
         stopResetButton.isEnabled = false
         saveButton.isEnabled = false
+        self.saveButton.layer.cornerRadius = 10
+        self.startButton.layer.cornerRadius = 10
+        self.stopResetButton.layer.cornerRadius = 10
         raceInfoLabel.text = event
         moc = coreDataStack.viewContext
         // Do any additional setup after loading the view.

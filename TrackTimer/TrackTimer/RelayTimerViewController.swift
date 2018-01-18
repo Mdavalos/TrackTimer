@@ -66,6 +66,9 @@ class RelayTimerViewController: UIViewController {
         super.viewDidLoad()
         stopLapResetButton.isEnabled = false
         saveButton.isEnabled = false
+        self.saveButton.layer.cornerRadius = 10
+        self.startButton.layer.cornerRadius = 10
+        self.stopLapResetButton.layer.cornerRadius = 10
         runner1Label.text = "\(runner1!.firstName!) \(runner1!.lastName!)"
         runner2Label.text = "\(runner2!.firstName!) \(runner2!.lastName!)"
         runner3Label.text = "\(runner3!.firstName!) \(runner3!.lastName!)"

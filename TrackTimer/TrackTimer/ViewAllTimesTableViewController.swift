@@ -34,6 +34,19 @@ class ViewAllTimesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         reload()
         tableView.reloadData()
+        
+        // go back to the previous viewcontroller if there are no times stored
+        if ((items.count == 0) && (items2.count == 0)) {
+            
+            let alert = UIAlertController(title: "View Error", message: "There are no times stored", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+                action in
+                self.navigationController?.popViewController(animated: true)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func reload() {

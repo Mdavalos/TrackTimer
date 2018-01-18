@@ -12,6 +12,8 @@ import CoreData
 class detailAthleteViewController: UIViewController, UITextFieldDelegate {
     
     var item: Athlete?
+    var items: [Event] = []
+    var items2: [RelayLeg] = []
     
     var moc: NSManagedObjectContext! = nil
     let coreDataStack = CoreDataStack.shared
@@ -22,6 +24,8 @@ class detailAthleteViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var yearTextField: UITextField!
     @IBOutlet weak var dobTextField: UITextField!
     @IBOutlet weak var teamNameTextField: UITextField!
+    @IBOutlet weak var viewIndTime: UIButton!
+    @IBOutlet weak var viewRelTime: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,8 @@ class detailAthleteViewController: UIViewController, UITextFieldDelegate {
         yearTextField.delegate = self
         dobTextField.delegate = self
         teamNameTextField.delegate = self
+        self.viewIndTime.layer.cornerRadius = 10
+        self.viewRelTime.layer.cornerRadius = 10
 
         moc = coreDataStack.viewContext
 
@@ -48,6 +54,19 @@ class detailAthleteViewController: UIViewController, UITextFieldDelegate {
             yearTextField.text = p.year
             dobTextField.text = p.dateOfBirth
             teamNameTextField.text = p.teamName
+        }
+        
+        // get the number of events for the athlete selected
+        let set = item?.myAthleteEvents
+        items = set?.allObjects as! [Event]
+        let set2 = item?.myAthleteRelayLegs
+        items2 = set2?.allObjects as! [RelayLeg]
+        // hide the buttons if there are no times to display
+        if (items.count == 0 ) {
+            viewIndTime.isHidden = true
+        }
+        if (items2.count == 0 ) {
+            viewRelTime.isHidden = true
         }
     }
     

@@ -17,6 +17,7 @@ class ChooseRelayAthletesTableViewController: UITableViewController {
     
     var numAthletesSelected = 0
     
+    // TODO: When a leg is deselected, make the adjustments for the other leg numbers
     
     @IBOutlet weak var okButton: UIBarButtonItem!
     
@@ -59,6 +60,24 @@ class ChooseRelayAthletesTableViewController: UITableViewController {
         tableView.reloadData()
         tableView.tableHeaderView = selectionInfoLabel
         okButton.isEnabled = false
+        
+        // go back to the previous viewcontroller if there are less than 4 runners of that gender
+        if (items.count <= 3) {
+            var message: String
+            if (items.count == 0) {
+                message = "There are no \(sex!) runners stored "
+            } else {
+                message = "There are not enough \(sex!) runners for a relay"
+            }
+            let alert = UIAlertController(title: "Timer Error", message: message , preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+                action in
+                self.navigationController?.popViewController(animated: true)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

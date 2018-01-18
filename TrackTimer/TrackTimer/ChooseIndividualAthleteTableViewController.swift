@@ -38,6 +38,19 @@ class ChooseIndividualAthleteTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         reload()
         tableView.reloadData()
+        
+        // go back to the previous viewcontroller if there are no runners of that gender
+        if (items.count == 0) {
+            
+            let alert = UIAlertController(title: "Timer Error", message: "There are no \(sex!) runners stored", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+                action in
+                self.navigationController?.popViewController(animated: true)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func reload() {

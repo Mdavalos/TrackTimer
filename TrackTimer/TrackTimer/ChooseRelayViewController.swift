@@ -7,25 +7,94 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ChooseRelayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class ChooseRelayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, CLLocationManagerDelegate {
 
     let race = ["4x100","4x200","4x400","4x800"]
     let gender = ["Male", "Female"]
+    let locationManager = CLLocationManager()
     
     @IBOutlet weak var racePicker: UIPickerView!
     @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var okButton: UIButton!
+    
+    // reverse geolocate location of the user to get city
+    func fetchCountryAndCity(location: CLLocation, completion: @escaping (String) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            if let error = error {
+                print(error)
+            } else if
+                let city = placemarks?.first?.locality {
+                completion(city)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationTextField.delegate = self
+        self.okButton.layer.cornerRadius = 10
+        //        locationTextField.delegate = self
         
-        // Do any additional setup after loading the view.
+        // for use when the app is open & in the background
+        //        locationManager.requestAlwaysAuthorization()
+        
+        // for use when the app is open
+        locationManager.requestWhenInUseAuthorization()
+        
+        // if location services is enabled get the users location
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest // you can change the location accuracy here.
+            locationManager.startUpdatingLocation()
+        }
+        
+        
+    }
+    // get the location of the user in latitude and longitude
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            let location = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            fetchCountryAndCity(location: location) { city in
+                // set location of city to textfield
+                self.locationTextField.text = city
+                // stop getting th users location
+                self.locationManager.stopUpdatingLocation()
+            }
+        }
+    }
+    
+    // if we have been deined access give the user the option to change it
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if(status == CLAuthorizationStatus.denied) {
+            showLocationDisabledPopUp()
+        }
+    }
+    
+    // show the popup to the user if we have been deined access
+    func showLocationDisabledPopUp() {
+        let alertController = UIAlertController(title: "Background Location Access Disabled",
+                                                message: "In order to know where you're running we need your location",
+                                                preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let openAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
+            if let url = URL(string: UIApplicationOpenSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        alertController.addAction(openAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-                 NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrameNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        // start location manager again if going back to the previous screen
+        locationManager.startUpdatingLocation()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillChangeFrameNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

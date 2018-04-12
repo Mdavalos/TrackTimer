@@ -23,6 +23,7 @@
 		E33E9E1D1E8D75F50046619F /* ChooseRelayAthletesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33E9E1C1E8D75F50046619F /* ChooseRelayAthletesTableViewController.swift */; };
 		E349F627207E4537006FB99E /* PracticeTimerSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E349F626207E4537006FB99E /* PracticeTimerSelectViewController.swift */; };
 		E349F629207E4961006FB99E /* PracticeTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E349F628207E4961006FB99E /* PracticeTimerViewController.swift */; };
+		E379CBCF207FD7FA006A5421 /* ViewPracticeTimesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E379CBCE207FD7FA006A5421 /* ViewPracticeTimesTableViewController.swift */; };
 		E382F6A51E816BE500E92116 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382F6A41E816BE500E92116 /* AppDelegate.swift */; };
 		E382F6A81E816BE500E92116 /* TrackTimer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E382F6A61E816BE500E92116 /* TrackTimer.xcdatamodeld */; };
 		E382F6AF1E816BE500E92116 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E382F6AD1E816BE500E92116 /* Main.storyboard */; };
@@ -75,6 +76,7 @@
 		E33E9E1C1E8D75F50046619F /* ChooseRelayAthletesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseRelayAthletesTableViewController.swift; sourceTree = "<group>"; };
 		E349F626207E4537006FB99E /* PracticeTimerSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTimerSelectViewController.swift; sourceTree = "<group>"; };
 		E349F628207E4961006FB99E /* PracticeTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTimerViewController.swift; sourceTree = "<group>"; };
+		E379CBCE207FD7FA006A5421 /* ViewPracticeTimesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPracticeTimesTableViewController.swift; sourceTree = "<group>"; };
 		E382F6A11E816BE500E92116 /* TrackTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E382F6A41E816BE500E92116 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E382F6A71E816BE500E92116 /* TrackTimer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TrackTimer.xcdatamodel; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				E349F626207E4537006FB99E /* PracticeTimerSelectViewController.swift */,
 				E349F628207E4961006FB99E /* PracticeTimerViewController.swift */,
+				E379CBCE207FD7FA006A5421 /* ViewPracticeTimesTableViewController.swift */,
 			);
 			name = PracticeTimer;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E379CBCF207FD7FA006A5421 /* ViewPracticeTimesTableViewController.swift in Sources */,
 				E382F6A51E816BE500E92116 /* AppDelegate.swift in Sources */,
 				E33770D41E843C5700136983 /* ChooseIndividualRaceViewController.swift in Sources */,
 				E31FC4AE1E940EC800E9F0EE /* CoreDataStack.swift in Sources */,

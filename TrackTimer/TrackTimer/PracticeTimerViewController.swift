@@ -69,8 +69,9 @@ class PracticeTimerViewController: UIViewController {
         splitStopButton.isEnabled = false
         viewTimesButton.isEnabled = false
         
-        //if divides evenly set split count
-        //if not set split count + 1
+        self.startButton.layer.cornerRadius = 10
+        self.splitStopButton.layer.cornerRadius = 10
+        self.viewTimesButton.layer.cornerRadius = 10
     }
     
     override func didReceiveMemoryWarning() {
@@ -124,6 +125,8 @@ class PracticeTimerViewController: UIViewController {
                 splitDistance = 0
                 oldTime = 0.0
                 firstSplit = true
+                timeHoldArray  = []
+                timeArray = []
                 runnersLeftLabel.text = String(runnerCount)
                 saveTime = false
             } else if (splitCount == 1){
@@ -188,6 +191,7 @@ class PracticeTimerViewController: UIViewController {
                 splitDistance = 0
                 splitDistance = 0
                 timeHoldArray  = []
+                timeArray = []
                 if ( splitCount == 1) {
                     twoSplits = true
                 }
@@ -198,7 +202,7 @@ class PracticeTimerViewController: UIViewController {
                 if (runnerCount == numRunner!) { //first runner
                     totalTime = stopwatch.elapsedTime
                     splitTime = stopwatch.elapsedTime
-                    timeHoldArray[1] = totalTime
+                    timeHoldArray.append(totalTime)
                     splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
                     totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
                     splitStopButton.setTitle("Stop", for: .normal)
@@ -208,7 +212,7 @@ class PracticeTimerViewController: UIViewController {
                 } else { //second runner
                     totalTime = stopwatch.elapsedTime
                     splitTime = stopwatch.elapsedTime
-                    timeHoldArray[1] = totalTime
+                    timeHoldArray.append(totalTime)
                     splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
                     totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
                     runnerCount = 0
@@ -258,7 +262,6 @@ class PracticeTimerViewController: UIViewController {
                         if (runnerCount == numRunner!) { //first runner
                             totalTime = stopwatch.elapsedTime
                             splitTime = stopwatch.elapsedTime
-//                            timeHoldArray[0] = totalTime
                             timeHoldArray.append(totalTime)
                             splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
                             totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
@@ -268,7 +271,6 @@ class PracticeTimerViewController: UIViewController {
                         } else { //second runner
                             totalTime = stopwatch.elapsedTime
                             splitTime = stopwatch.elapsedTime
-//                            timeHoldArray[1] = totalTime
                             timeHoldArray.append(totalTime)
                             splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
                             totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
@@ -308,6 +310,21 @@ class PracticeTimerViewController: UIViewController {
             }
             
         } else {
+            //first split
+                //first runner append time to array
+                //continue appending
+                //last runner apend and decrease split count
+            //continue with splits
+                //first runner get time array spot of 0
+                //other runners get time array spot of length which is count
+                // last runner get time array spot then reset count to 1
+                //decrease split count
+            //last split
+                //first runner same as continue
+                //when runner number is 2 (or 1?) change button to stop
+                //last runner change button to reset and enable view times button
+            
+            
             //More than 2 runners DOES NOT WORK
             if reset {
                 // reset the times

@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TrackTimer/PracticeTimerViewController.swift"
-            timestampString = "545167574.983109"
+            timestampString = "545236147.771528"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
             landmarkName = "updateElapsedTimeLabel(_:)"
             landmarkType = "7">
          </BreakpointContent>

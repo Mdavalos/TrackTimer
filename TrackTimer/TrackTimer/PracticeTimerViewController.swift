@@ -28,6 +28,14 @@ class PracticeTimerViewController: UIViewController {
     var splitDistance = 0
     var resetSplit = 0
     
+    //variables for 1 or 2 runners
+    var runnerOne = false
+    var runnerTwo = false
+    var firstSplit = true
+    var twoSplits = false
+    
+    // variable array to hold the
+    
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
@@ -55,6 +63,8 @@ class PracticeTimerViewController: UIViewController {
         runnersLeftLabel.text = String(numRunner!)
         splitDistanceLabel.text = split
         
+        splitStopButton.isEnabled = false
+        
         //if divides evenly set split count
         //if not set split count + 1
     }
@@ -71,48 +81,308 @@ class PracticeTimerViewController: UIViewController {
         splitStopButton.setTitle("Split", for: .normal)
         startButton.isEnabled = false
         splitStopButton.isEnabled = true
-
-        print(splitCount)
+        
+        if(numRunner! == 1){
+            runnerOne = true
+            splitCount == 1 ? splitStopButton.setTitle("Stop", for: .normal) : splitStopButton.setTitle("Split", for: .normal)
+        }
+        if(numRunner! == 2) {
+            runnerTwo = true
+            if ( splitCount == 1) {
+                twoSplits = true
+            }
+            splitStopButton.setTitle("Split", for: .normal)
+        }
         
         // disable app from locking while timer is running
         UIApplication.shared.isIdleTimerDisabled = true
     }
     @IBAction func stop(_ sender: Any) {
-        //Not working with less than 3 runners on last split
-        
-        
-        // button will be a split button,then stop button then a reset button
-        if reset {
-            // reset the times
-            reset = false
-            timerLabel.text = "00:00.00"
-            splitDistanceLabel.text = "0"
-            totalDistanceLabel.text = "0"
-            splitTimeLabel.text = "00:00.00"
-            totalTimeLabel.text = "00:00.00"
-            startButton.isEnabled = true
-            splitStopButton.isEnabled = false
-            splitCount = resetSplit
-            runnerCount = numRunner!
-            distanceCount = 0
-            splitDistance = 0
-            runnersLeftLabel.text = String(runnerCount)
-        } else if (splitCount == 1){
-            if numRunner == 2 {
-                //first runner
-                if (runnerCount  == 0) {
-                    print("Last Runner")
+        if( runnerOne) {
+            print("One Runner")
+            if reset {
+                // reset the times
+                reset = false
+                timerLabel.text = "00:00.00"
+                splitDistanceLabel.text = split!
+                totalDistanceLabel.text = "0"
+                splitTimeLabel.text = "00:00.00"
+                totalTimeLabel.text = "00:00.00"
+                startButton.isEnabled = true
+                splitStopButton.isEnabled = false
+                splitCount = resetSplit
+                runnerCount = numRunner!
+                distanceCount = 0
+                splitDistance = 0
+                oldTime = 0.0
+                firstSplit = true
+                runnersLeftLabel.text = String(runnerCount)
+            } else if (splitCount == 1){
+                runnerCount = runnerCount - 1
+                runnersLeftLabel.text = String(runnerCount)
+                totalTime = stopwatch.elapsedTime
+                splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                timerLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                totalDistanceLabel.text = distance!
+                splitDistanceLabel.text = String(Int(distance!)! - distanceCount)
+                stopwatch.stop()
+                splitStopButton.setTitle("Reset", for: .normal)
+                reset = true
+                splitCounter = resetSplit
+            } else {
+                if (firstSplit) {
+                    distanceCount += Int(split!)!
+                    totalDistanceLabel.text = String(distanceCount)
+                    totalTime = stopwatch.elapsedTime
+                    splitTime = stopwatch.elapsedTime
+                    splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                    totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                    firstSplit = false
+                    splitCount = splitCount - 1
+                    
+                } else {
+                oldTime = totalTime
+                totalTime = stopwatch.elapsedTime
+                splitTime = stopwatch.elapsedTime - oldTime
+                print(stopwatch.elapsedLegTimeAsString(time: splitTime))
+                splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                    distanceCount += Int(split!)!
+                totalDistanceLabel.text = String(distanceCount)
+                splitCount = splitCount - 1
+                }
+                if (splitCount == 1){
+                    splitStopButton.setTitle("Stop", for: .normal)
+                }
+            }
+            
+            
+        } else if (runnerTwo) {
+            print("Two Runners")
+            if ( twoSplits) {
+                print("One split")
+                oldTime = totalTime
+                totalTime = stopwatch.elapsedTime
+                splitTime = stopwatch.elapsedTime - oldTime
+                splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                splitStopButton.setTitle("Stop", for: .normal)
+                splitCount = splitCount - 1
+                runnerCount = 1
+                runnersLeftLabel.text = String(runnerCount)
+                twoSplits = false
+            } else if reset {
+                print("reset")
+                // reset the times
+                reset = false
+                timerLabel.text = "00:00.00"
+                splitDistanceLabel.text = split!
+                totalDistanceLabel.text = "0"
+                splitTimeLabel.text = "00:00.00"
+                totalTimeLabel.text = "00:00.00"
+                startButton.isEnabled = true
+                splitStopButton.isEnabled = false
+                splitCount = resetSplit
+                runnerCount = numRunner!
+                distanceCount = 0
+                splitDistance = 0
+                splitDistance = 0
+                if ( splitCount == 1) {
+                    twoSplits = true
+                }
+                runnersLeftLabel.text = String(runnerCount)
+            } else if (splitCount == 1){
+                if numRunner == 2 {
+                    //first runner
+                    if (runnerCount  == 0) {
+                        oldTime = totalTime
+                        totalTime = stopwatch.elapsedTime
+                        splitTime = stopwatch.elapsedTime - oldTime
+                        splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                        totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                        splitDistanceLabel.text = String(Int(distance!)! - distanceCount)
+                        totalDistanceLabel.text = distance!
+                        splitDistanceLabel.text = String(Int(distance!)! - distanceCount)
+                        splitStopButton.setTitle("Stop", for: .normal)
+                        splitCount = splitCount - 1
+                        runnerCount = 1
+                        runnersLeftLabel.text = String(runnerCount)
+                    }
+                } else if numRunner == 1 {
+                    runnerCount = runnerCount - 1
+                    runnersLeftLabel.text = String(runnerCount)
                     oldTime = totalTime
                     totalTime = stopwatch.elapsedTime
                     splitTime = stopwatch.elapsedTime - oldTime
                     splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
                     totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
-                    splitStopButton.setTitle("Stop", for: .normal)
+                    timerLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                    splitDistanceLabel.text = String(Int(distance!)! - distanceCount)
+                    totalDistanceLabel.text = distance!
+                    stopwatch.stop()
+                    splitStopButton.setTitle("Reset", for: .normal)
+                    reset = true
+                    splitCounter = resetSplit
+                }
+                
+            } else if (splitCount == 0) {
+                runnerCount = runnerCount - 1
+                runnersLeftLabel.text = String(runnerCount)
+                oldTime = totalTime
+                totalTime = stopwatch.elapsedTime
+                splitTime = stopwatch.elapsedTime - oldTime
+                splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                timerLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                splitDistanceLabel.text = String(Int(distance!)! - distanceCount)
+                totalDistanceLabel.text = distance!
+                stopwatch.stop()
+                splitStopButton.setTitle("Reset", for: .normal)
+                reset = true
+                splitCounter = resetSplit
+            } else {
+                if(runnerCount == numRunner) {
+                    //start a split lap
+                    distanceCount += Int(split!)!
+                    totalDistanceLabel.text = String(distanceCount)
+                    totalTime = stopwatch.elapsedTime
+                    splitTime = stopwatch.elapsedTime
+                    splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                    totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                    runnerCount = runnerCount - 1
+                    runnersLeftLabel.text = String(runnerCount)
+                    
+                } else if (runnerCount == 1) {
+                    oldTime = totalTime
+                    totalTime = stopwatch.elapsedTime
+                    splitTime = stopwatch.elapsedTime - oldTime
+                    splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                    totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                    runnersLeftLabel.text = String(numRunner!)
                     splitCount = splitCount - 1
-                    runnerCount = 1
+                    runnerCount = runnerCount - 1
+                } else if (runnerCount == 0) {
+                    distanceCount += Int(split!)!
+                    totalDistanceLabel.text = String(distanceCount)
+                    totalTime = stopwatch.elapsedTime
+                    splitTime = stopwatch.elapsedTime
+                    splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                    totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                    
+                    runnerCount = numRunner!
+                    runnerCount = runnerCount - 1
+                    runnersLeftLabel.text = String(runnerCount)
+                } else {
+                    oldTime = totalTime
+                    totalTime = stopwatch.elapsedTime
+                    splitTime = stopwatch.elapsedTime - oldTime
+                    splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                    totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                    runnerCount = runnerCount - 1
                     runnersLeftLabel.text = String(runnerCount)
                 }
-            } else if numRunner == 1 {
+            }
+            
+            
+        } else {
+            print("More than 2 runners")
+            // button will be a split button,then stop button then a reset button
+            if reset {
+                // reset the times
+                reset = false
+                timerLabel.text = "00:00.00"
+                splitDistanceLabel.text = split!
+                totalDistanceLabel.text = "0"
+                splitTimeLabel.text = "00:00.00"
+                totalTimeLabel.text = "00:00.00"
+                startButton.isEnabled = true
+                splitStopButton.isEnabled = false
+                splitCount = resetSplit
+                runnerCount = numRunner!
+                distanceCount = 0
+                splitDistance = 0
+                runnersLeftLabel.text = String(runnerCount)
+            } else if (splitCount == 1){
+                if numRunner == 2 {
+                    //first runner
+                    if (runnerCount  == 0) {
+                        print("Last Runner")
+                        oldTime = totalTime
+                        totalTime = stopwatch.elapsedTime
+                        splitTime = stopwatch.elapsedTime - oldTime
+                        splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                        totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                        splitStopButton.setTitle("Stop", for: .normal)
+                        splitCount = splitCount - 1
+                        runnerCount = 1
+                        runnersLeftLabel.text = String(runnerCount)
+                    }
+                } else if numRunner == 1 {
+                    runnerCount = runnerCount - 1
+                    runnersLeftLabel.text = String(runnerCount)
+                    oldTime = totalTime
+                    totalTime = stopwatch.elapsedTime
+                    splitTime = stopwatch.elapsedTime - oldTime
+                    splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                    totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                    timerLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                    totalDistanceLabel.text = distance!
+                    print("Reset Button")
+                    stopwatch.stop()
+                    splitStopButton.setTitle("Reset", for: .normal)
+                    reset = true
+                    splitCounter = resetSplit
+                } else {
+                    print("last split")
+                    if(runnerCount == numRunner) {
+                        //start a split lap
+                        print("First Runner")
+                        totalDistanceLabel.text = distance!
+                        totalTime = stopwatch.elapsedTime
+                        splitTime = stopwatch.elapsedTime
+                        splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                        totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                    } else if (runnerCount == 2) {
+                        print("Last Runner")
+                        oldTime = totalTime
+                        totalTime = stopwatch.elapsedTime
+                        splitTime = stopwatch.elapsedTime - oldTime
+                        splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                        totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                        splitStopButton.setTitle("Stop", for: .normal)
+                        splitCount = splitCount - 1
+                    } else if (runnerCount  == 1) {
+                        print("First New Runner")
+                        totalDistanceLabel.text = distance!
+                        totalTime = stopwatch.elapsedTime
+                        splitTime = stopwatch.elapsedTime
+                        splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                        totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                        runnerCount = numRunner!
+                    } else if (runnerCount  == 0) {
+                        print("First New Runner")
+                        totalDistanceLabel.text = distance!
+                        totalTime = stopwatch.elapsedTime
+                        splitTime = stopwatch.elapsedTime
+                        splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                        totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                        runnerCount = numRunner!
+                    } else {
+                        print("Runner " + String(runnerCount))
+                        oldTime = totalTime
+                        totalTime = stopwatch.elapsedTime
+                        splitTime = stopwatch.elapsedTime - oldTime
+                        splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
+                        totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                    }
+                    
+                    runnerCount = runnerCount - 1
+                    runnersLeftLabel.text = String(runnerCount)
+                    splitDistanceLabel.text = String(Int(distance!)! - distanceCount)
+                }
+                
+            } else if (splitCount == 0) {
                 runnerCount = runnerCount - 1
                 runnersLeftLabel.text = String(runnerCount)
                 oldTime = totalTime
@@ -128,115 +398,46 @@ class PracticeTimerViewController: UIViewController {
                 reset = true
                 splitCounter = resetSplit
             } else {
-                print("last split")
                 if(runnerCount == numRunner) {
                     //start a split lap
-                    print("First Runner")
-                    distanceCount += Int(distance!)! / Int(resetSplit)
+                    distanceCount += Int(split!)!
                     totalDistanceLabel.text = String(distanceCount)
                     totalTime = stopwatch.elapsedTime
                     splitTime = stopwatch.elapsedTime
                     splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
                     totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
-                } else if (runnerCount == 2) {
-                    print("Last Runner")
+                    runnerCount = runnerCount - 1
+                    runnersLeftLabel.text = String(runnerCount)
+                    
+                } else if (runnerCount == 1) {
                     oldTime = totalTime
                     totalTime = stopwatch.elapsedTime
                     splitTime = stopwatch.elapsedTime - oldTime
                     splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
                     totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
-                    splitStopButton.setTitle("Stop", for: .normal)
+                    runnersLeftLabel.text = String(numRunner!)
                     splitCount = splitCount - 1
-                } else if (runnerCount  == 1) {
-                    print("First New Runner")
-                    distanceCount += Int(distance!)! / Int(resetSplit)
+                    runnerCount = runnerCount - 1
+                } else if (runnerCount == 0) {
+                    distanceCount += Int(split!)!
                     totalDistanceLabel.text = String(distanceCount)
                     totalTime = stopwatch.elapsedTime
                     splitTime = stopwatch.elapsedTime
                     splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
                     totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                    
                     runnerCount = numRunner!
-                } else if (runnerCount  == 0) {
-                    print("First New Runner")
-                    distanceCount += Int(distance!)! / Int(resetSplit)
-                    totalDistanceLabel.text = String(distanceCount)
-                    totalTime = stopwatch.elapsedTime
-                    splitTime = stopwatch.elapsedTime
-                    splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
-                    totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
-                    runnerCount = numRunner!
+                    runnerCount = runnerCount - 1
+                    runnersLeftLabel.text = String(runnerCount)
                 } else {
-                    print("Runner " + String(runnerCount))
                     oldTime = totalTime
                     totalTime = stopwatch.elapsedTime
                     splitTime = stopwatch.elapsedTime - oldTime
                     splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
                     totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
+                    runnerCount = runnerCount - 1
+                    runnersLeftLabel.text = String(runnerCount)
                 }
-                
-                runnerCount = runnerCount - 1
-                runnersLeftLabel.text = String(runnerCount)
-            }
-            
-        } else if (splitCount == 0) {
-            runnerCount = runnerCount - 1
-            runnersLeftLabel.text = String(runnerCount)
-            oldTime = totalTime
-            totalTime = stopwatch.elapsedTime
-            splitTime = stopwatch.elapsedTime - oldTime
-            splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
-            totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
-            timerLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
-            totalDistanceLabel.text = distance!
-            print("Reset Button")
-            stopwatch.stop()
-            splitStopButton.setTitle("Reset", for: .normal)
-            reset = true
-            splitCounter = resetSplit
-        } else {
-            if(runnerCount == numRunner) {
-                //start a split lap
-                print("First Runner")
-                distanceCount += Int(distance!)! / Int(resetSplit)
-                totalDistanceLabel.text = String(distanceCount)
-                totalTime = stopwatch.elapsedTime
-                splitTime = stopwatch.elapsedTime
-                splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
-                totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
-                runnerCount = runnerCount - 1
-                runnersLeftLabel.text = String(runnerCount)
-                
-            } else if (runnerCount == 1) {
-                print("Last Runner")
-                oldTime = totalTime
-                totalTime = stopwatch.elapsedTime
-                splitTime = stopwatch.elapsedTime - oldTime
-                splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
-                totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
-                runnersLeftLabel.text = String(numRunner!)
-                splitCount = splitCount - 1
-                runnerCount = runnerCount - 1
-            } else if (runnerCount == 0) {
-                print("First New Runner")
-                distanceCount += Int(distance!)! / Int(resetSplit)
-                totalDistanceLabel.text = String(distanceCount)
-                totalTime = stopwatch.elapsedTime
-                splitTime = stopwatch.elapsedTime
-                splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
-                totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
-                
-                runnerCount = numRunner!
-                runnerCount = runnerCount - 1
-                runnersLeftLabel.text = String(runnerCount)
-            } else {
-                print("Runner " + String(runnerCount))
-                oldTime = totalTime
-                totalTime = stopwatch.elapsedTime
-                splitTime = stopwatch.elapsedTime - oldTime
-                splitTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: splitTime)
-                totalTimeLabel.text = stopwatch.elapsedLegTimeAsString(time: totalTime)
-                runnerCount = runnerCount - 1
-                runnersLeftLabel.text = String(runnerCount)
             }
         }
         

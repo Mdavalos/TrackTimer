@@ -1613,8 +1613,7 @@
                                 </constraints>
                                 <state key="normal" title="View Times"/>
                                 <connections>
-                                    <action selector="viewTimes:" destination="uO8-aE-tsP" eventType="touchUpInside" id="oVX-yn-E5O"/>
-                                    <segue destination="DkQ-Pv-lP4" kind="show" id="VuR-Ak-1Ro"/>
+                                    <segue destination="DkQ-Pv-lP4" kind="show" id="aOw-nJ-MIi"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1tG-pW-RaS">
@@ -1791,7 +1790,7 @@
                         <outlet property="timerLabel" destination="1tG-pW-RaS" id="Znr-wT-8ej"/>
                         <outlet property="totalDistanceLabel" destination="2yH-VB-s8Z" id="xv0-eS-Cbz"/>
                         <outlet property="totalTimeLabel" destination="FVN-Eu-0rJ" id="3N5-aa-19W"/>
-                        <outlet property="viewTimesButton" destination="SOu-ev-A59" id="auv-DN-hk7"/>
+                        <outlet property="viewTimesButton" destination="SOu-ev-A59" id="vCZ-iU-LNR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acb-qY-iI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
